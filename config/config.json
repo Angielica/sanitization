@@ -1,0 +1,25 @@
+{
+  "dataset_name": "FFHQ-subset",
+  "batch_size": 32,
+  "n_epochs": 150,
+  "seed": 42,
+  "init_ks_1": 4,
+  "init_ks_2": 6,
+  "init_stride": 1,
+  "init_padding1": 1,
+  "init_padding2": 2,
+  "output_padding": 0,
+  "DATA_FOLDER": "./data/FFHQ-subset",
+  "SAVE_FOLDER": "./saved",
+  "OUT_DIR": "./saved/plots/sanitized_imgs",
+  "MODEL_FOLDER": "./saved/models",
+  "PLOT_FOLDER": "./saved/plots",
+  "n_channels": 3,
+  "model_name": "AE",
+  "MODEL_PATH": "models.models.AutoEncoder",
+  "load_best_model": 1,
+  "train": 1,
+  "test": 1,
+  "is_plus": 0
+
+}
