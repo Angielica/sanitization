@@ -138,7 +138,7 @@ class UNet(nn.Module):
 
         self.sigmoid = nn.Sigmoid()
 
-    def forward(self, x, predict=False):
+    def forward(self, x):
         # 321 x 321 x 3
         x = self.conv1(x)  # 320 x 320 x 64
         x1 = self.conv2(x)  # 160 x 160 x 64
@@ -233,7 +233,7 @@ class UNetPlus(nn.Module):
 
         self.sigmoid = nn.Sigmoid()
 
-    def forward(self, x, predict=False):
+    def forward(self, x):
         # 321 x 321 x 3
         x = self.cnn1(x)  # 320 x 320 x 64
         x1 = self.cnn2(x)  # 160 x 160 x 64

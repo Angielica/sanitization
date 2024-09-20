@@ -17,8 +17,8 @@ def main(fname):
         params = json.load(fp)
 
     gpu = params["n_gpu"]
-    if "CUDA_VISIBLE_DEVICES" not in os.environ:
-        os.environ["CUDA_VISIBLE_DEVICES"] = gpu
+    # if "CUDA_VISIBLE_DEVICES" not in os.environ:
+    #     os.environ["CUDA_VISIBLE_DEVICES"] = gpu
 
     device = torch.device(f"cuda:{gpu}" if torch.cuda.is_available() else "cpu")
     params["device"] = device
@@ -78,6 +78,10 @@ def main(fname):
 
         params['TYPE_DIR'] = 'test/lsb_oceanlotus/sequential'
         test(test_loader_oceanlotus_sequential_loader, model, params)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1])
 
 
 

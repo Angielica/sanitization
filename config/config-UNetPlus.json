@@ -1,6 +1,6 @@
 {
   "dataset_name": "FFHQ-subset",
-  "batch_size": 16,
+  "batch_size": 1,
   "n_epochs": 150,
   "seed": 42,
   "init_ks_1": 1,
@@ -15,12 +15,12 @@
   "MODEL_FOLDER": "./saved/models",
   "PLOT_FOLDER": "./saved/plots",
   "n_channels": 3,
-  "model_name": "AE",
-  "MODEL_PATH": "models.models.AutoEncoder",
+  "model_name": "UNetPlus",
+  "MODEL_PATH": "models.models.UNetPlus",
   "load_best_model": 1,
   "train": 1,
   "test": 1,
-  "is_plus": 0,
+  "is_plus": 1,
   "n_gpu": "3"
 
 }

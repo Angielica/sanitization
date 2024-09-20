@@ -3,7 +3,7 @@ import torch
 from time import time
 import sys
 
-from losses import DenoiseLoss
+from models.losses import DenoiseLoss
 from utility.plotter import plot_loss, plot_loss_log
 class Trainer:
     def __init__(self, model, params):
