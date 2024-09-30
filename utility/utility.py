@@ -13,9 +13,10 @@ def set_reproducibility(seed):
 
 def create_folders(params):
     SAVE_FOLDER, MODEL_FOLDER, PLOT_FOLDER = params['SAVE_FOLDER'], params['MODEL_FOLDER'], params['PLOT_FOLDER']
+    RESULT_FOLDER = params['RESULT_FOLDER']
     OUT_DIR = params['OUT_DIR']
 
-    for dir in [SAVE_FOLDER, MODEL_FOLDER, PLOT_FOLDER, OUT_DIR]:
+    for dir in [SAVE_FOLDER, MODEL_FOLDER, PLOT_FOLDER, RESULT_FOLDER, OUT_DIR]:
         if not os.path.exists(dir):
             os.makedirs(dir)
 

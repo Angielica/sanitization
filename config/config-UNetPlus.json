@@ -14,6 +14,7 @@
   "OUT_DIR": "./saved/plots/sanitized_imgs",
   "MODEL_FOLDER": "./saved/models",
   "PLOT_FOLDER": "./saved/plots",
+  "RESULT_FOLDER": "./saved/results",
   "n_channels": 3,
   "model_name": "UNetPlus",
   "MODEL_PATH": "models.models.UNetPlus",
@@ -21,6 +22,6 @@
   "train": 1,
   "test": 1,
   "is_plus": 1,
-  "n_gpu": "3"
+  "n_gpu": "0"
 
 }
