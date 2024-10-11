@@ -1,5 +1,5 @@
 {
-  "dataset_name": "FFHQ-subset",
+  "dataset_name": "FFHQ-subset-big",
   "batch_size": 1,
   "n_epochs": 20,
   "seed": 42,
@@ -9,7 +9,7 @@
   "init_padding1": 0,
   "init_padding2": 0,
   "output_padding": 0,
-  "DATA_FOLDER": "./data/FFHQ-subset",
+  "DATA_FOLDER": "./data/FFhQ-subset-bigpayloads/resulting_images_210urls",
   "DATA_FOLDER_CLEAN": "./data/FFHQ-subset",
   "SAVE_FOLDER": "./saved",
   "OUT_DIR": "./saved/plots/sanitized_imgs",

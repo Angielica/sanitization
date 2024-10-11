@@ -1,7 +1,7 @@
 {
   "dataset_name": "FFHQ-subset",
   "batch_size": 1,
-  "n_epochs": 150,
+  "n_epochs": 20,
   "seed": 42,
   "init_ks_1": 1,
   "init_ks_2": 1,
@@ -10,17 +10,19 @@
   "init_padding2": 0,
   "output_padding": 0,
   "DATA_FOLDER": "./data/FFHQ-subset",
+  "DATA_FOLDER_CLEAN": "./data/FFHQ-subset",
   "SAVE_FOLDER": "./saved",
   "OUT_DIR": "./saved/plots/sanitized_imgs",
   "MODEL_FOLDER": "./saved/models",
   "PLOT_FOLDER": "./saved/plots",
+  "RESULT_FOLDER": "./saved/results",
   "n_channels": 3,
   "model_name": "UNet",
   "MODEL_PATH": "models.models.UNet",
   "load_best_model": 1,
   "train": 1,
-  "test": 1,
+  "test": 0,
   "is_plus": 0,
-  "n_gpu": "3"
+  "n_gpu": "0"
 
 }

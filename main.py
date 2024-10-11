@@ -5,7 +5,6 @@ import sys
 import torch
 
 from dataloader.dataloader import get_data
-from models.models import AutoEncoder, UNet, UNetPlus
 from models.trainer import Trainer
 
 from utility.utility import create_folders, set_reproducibility, define_structure
@@ -56,27 +55,47 @@ def main(fname):
     if params['test']:
         if params['load_best_model']:
             model.load_state_dict(torch.load(params['best_path_model']))
+            model = model.to(device)
         else:
             model.load_state_dict(torch.load(params['last_path_model']))
+            model = model.to(device)
 
         # LSB CLASSIC
         params['TYPE_DIR'] = 'test/lsb_classic/interleaving_rows'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_classic_rows_loader, model, params)
 
         params['TYPE_DIR'] = 'test/lsb_classic/interleaving_squares'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_classic_squares_loader, model, params)
 
         params['TYPE_DIR'] = 'test/lsb_classic/sequential'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_classic_sequential_loader, model, params)
 
         # LSB OCEANLOTUS
         params['TYPE_DIR'] = 'test/lsb_oceanlotus/interleaving_rows'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_oceanlotus_rows_loader, model, params)
 
         params['TYPE_DIR'] = 'test/lsb_oceanlotus/interleaving_squares'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_oceanlotus_squares_loader, model, params)
 
         params['TYPE_DIR'] = 'test/lsb_oceanlotus/sequential'
+        TMP_FOLDER = os.path.join(params['OUT_DIR'], params['TYPE_DIR'])
+        if not os.path.exists(TMP_FOLDER):
+            os.makedirs(TMP_FOLDER)
         test(test_loader_oceanlotus_sequential_loader, model, params)
 
 

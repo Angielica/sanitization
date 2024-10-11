@@ -1,5 +1,5 @@
 {
-  "dataset_name": "FFHQ-subset",
+  "dataset_name": "FFHQ-subset-big",
   "batch_size": 1,
   "n_epochs": 20,
   "seed": 42,
@@ -9,7 +9,7 @@
   "init_padding1": 0,
   "init_padding2": 0,
   "output_padding": 0,
-  "DATA_FOLDER": "./data/FFHQ-subset",
+  "DATA_FOLDER": "./data/FFhQ-subset-bigpayloads/resulting_images_210urls",
   "DATA_FOLDER_CLEAN": "./data/FFHQ-subset",
   "SAVE_FOLDER": "./saved",
   "OUT_DIR": "./saved/plots/sanitized_imgs",
@@ -17,12 +17,12 @@
   "PLOT_FOLDER": "./saved/plots",
   "RESULT_FOLDER": "./saved/results",
   "n_channels": 3,
-  "model_name": "AE",
-  "MODEL_PATH": "models.models.AutoEncoder",
+  "model_name": "UNetPlus",
+  "MODEL_PATH": "models.models.UNetPlus",
   "load_best_model": 1,
   "train": 1,
   "test": 0,
-  "is_plus": 0,
+  "is_plus": 1,
   "n_gpu": "0"
 
 }

@@ -1,7 +1,7 @@
 {
   "dataset_name": "FFHQ-subset",
   "batch_size": 1,
-  "n_epochs": 150,
+  "n_epochs": 20,
   "seed": 42,
   "init_ks_1": 1,
   "init_ks_2": 1,
@@ -10,6 +10,7 @@
   "init_padding2": 0,
   "output_padding": 0,
   "DATA_FOLDER": "./data/FFHQ-subset",
+  "DATA_FOLDER_CLEAN": "./data/FFHQ-subset",
   "SAVE_FOLDER": "./saved",
   "OUT_DIR": "./saved/plots/sanitized_imgs",
   "MODEL_FOLDER": "./saved/models",
@@ -19,7 +20,7 @@
   "model_name": "UNetPlus",
   "MODEL_PATH": "models.models.UNetPlus",
   "load_best_model": 1,
-  "train": 1,
+  "train": 0,
   "test": 1,
   "is_plus": 1,
   "n_gpu": "0"

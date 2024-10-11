@@ -6,18 +6,19 @@ from PIL import Image
 
 import natsort
 class CustomDataset(Dataset):
-    def __init__(self, data, transform, data_folder, type_set_folder, attack_type=None):
+    def __init__(self, data, transform, data_folder, type_set_folder, attack_type=None, params=None):
         self.data = data
         self.transform = transform
         self.data_folder = data_folder
         self.type_set_folder = type_set_folder
         self.attack_type = attack_type
+        self.params = params
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx):
-        clean_img_loc = os.path.join(self.data_folder, 'clean', self.type_set_folder, self.data[idx])
+        clean_img_loc = os.path.join(self.params['DATA_FOLDER_CLEAN'], 'clean', self.type_set_folder, self.data[idx])
         clean_image = Image.open(clean_img_loc).convert("RGB")
         tensor_clean_image = self.transform(clean_image)
 
@@ -32,62 +33,81 @@ def get_data(params):
     batch_size = params['batch_size']
 
     data_folder = params['DATA_FOLDER']
-    train_data = natsort.natsorted(os.listdir(os.path.join(data_folder, 'clean/train')))
-    val_data = natsort.natsorted(os.listdir(os.path.join(data_folder, 'clean/val')))
-    test_data = natsort.natsorted(os.listdir(os.path.join(data_folder, 'clean/test')))
+    data_folder_clean = params['DATA_FOLDER_CLEAN']
+    train_data = natsort.natsorted(os.listdir(os.path.join(data_folder_clean, 'clean/train')))
+    val_data = natsort.natsorted(os.listdir(os.path.join(data_folder_clean, 'clean/val')))
+    test_data = natsort.natsorted(os.listdir(os.path.join(data_folder_clean, 'clean/test')))
 
     train_set_classic_rows = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                           type_set_folder='train', attack_type='lsb_classic/interleaving_rows')
+                                           type_set_folder='train', attack_type='lsb_classic/interleaving_rows',
+                                           params=params)
     train_set_classic_squares = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                              type_set_folder='train', attack_type='lsb_classic/interleaving_squares')
+                                              type_set_folder='train', attack_type='lsb_classic/interleaving_squares',
+                                           params=params)
 
     train_set_classic_sequential = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                                 type_set_folder='train', attack_type='lsb_classic/sequential')
+                                                 type_set_folder='train', attack_type='lsb_classic/sequential',
+                                           params=params)
 
     train_set_oceanlotus_rows = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                              type_set_folder='train',attack_type='lsb_oceanlotus/interleaving_rows')
+                                              type_set_folder='train',attack_type='lsb_oceanlotus/interleaving_rows',
+                                           params=params)
 
     train_set_oceanlotus_squares = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                                 type_set_folder='train', attack_type='lsb_oceanlotus/interleaving_squares')
+                                                 type_set_folder='train', attack_type='lsb_oceanlotus/interleaving_squares',
+                                           params=params)
 
     train_set_oceanlotus_sequential = CustomDataset(data=train_data, transform=transform, data_folder=data_folder,
-                                                    type_set_folder='train', attack_type='lsb_oceanlotus/sequential')
+                                                    type_set_folder='train', attack_type='lsb_oceanlotus/sequential',
+                                           params=params)
 
     val_set_classic_rows = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                         type_set_folder='val', attack_type='lsb_classic/interleaving_rows')
+                                         type_set_folder='val', attack_type='lsb_classic/interleaving_rows',
+                                           params=params)
 
     val_set_classic_squares = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                            type_set_folder='val', attack_type='lsb_classic/interleaving_squares')
+                                            type_set_folder='val', attack_type='lsb_classic/interleaving_squares',
+                                           params=params)
 
     val_set_classic_sequential = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                               type_set_folder='val', attack_type='lsb_classic/sequential')
+                                               type_set_folder='val', attack_type='lsb_classic/sequential',
+                                           params=params)
 
     val_set_oceanlotus_rows = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                            type_set_folder='val', attack_type='lsb_oceanlotus/interleaving_rows')
+                                            type_set_folder='val', attack_type='lsb_oceanlotus/interleaving_rows',
+                                           params=params)
 
     val_set_oceanlotus_squares = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                               type_set_folder='val', attack_type='lsb_oceanlotus/interleaving_squares')
+                                               type_set_folder='val', attack_type='lsb_oceanlotus/interleaving_squares',
+                                           params=params)
 
     val_set_oceanlotus_sequential = CustomDataset(data=val_data, transform=transform, data_folder=data_folder,
-                                                  type_set_folder='val', attack_type='lsb_oceanlotus/sequential')
+                                                  type_set_folder='val', attack_type='lsb_oceanlotus/sequential',
+                                           params=params)
 
     test_set_classic_rows = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                          type_set_folder='test', attack_type='lsb_classic/interleaving_rows')
+                                          type_set_folder='test', attack_type='lsb_classic/interleaving_rows',
+                                           params=params)
 
     test_set_classic_squares = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                             type_set_folder='test', attack_type='lsb_classic/interleaving_squares')
+                                             type_set_folder='test', attack_type='lsb_classic/interleaving_squares',
+                                           params=params)
 
     test_set_classic_sequential = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                                type_set_folder='test', attack_type='lsb_classic/sequential')
+                                                type_set_folder='test', attack_type='lsb_classic/sequential',
+                                           params=params)
 
     test_set_oceanlotus_rows = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                             type_set_folder='test', attack_type='lsb_oceanlotus/interleaving_rows')
+                                             type_set_folder='test', attack_type='lsb_oceanlotus/interleaving_rows',
+                                           params=params)
 
     test_set_oceanlotus_squares = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                                type_set_folder='test', attack_type='lsb_oceanlotus/interleaving_squares')
+                                                type_set_folder='test', attack_type='lsb_oceanlotus/interleaving_squares',
+                                           params=params)
 
     test_set_oceanlotus_sequential = CustomDataset(data=test_data, transform=transform, data_folder=data_folder,
-                                                   type_set_folder='test', attack_type='lsb_oceanlotus/sequential')
+                                                   type_set_folder='test', attack_type='lsb_oceanlotus/sequential',
+                                           params=params)
 
     train_set = torch.utils.data.ConcatDataset([train_set_classic_rows, train_set_classic_squares,
                                                 train_set_classic_sequential,
