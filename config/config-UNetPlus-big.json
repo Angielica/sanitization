@@ -12,7 +12,7 @@
   "DATA_FOLDER": "./data/FFhQ-subset-bigpayloads/resulting_images_210urls",
   "DATA_FOLDER_CLEAN": "./data/FFHQ-subset",
   "SAVE_FOLDER": "./saved",
-  "OUT_DIR": "./saved/plots/sanitized_imgs",
+  "OUT_DIR": "./saved/plots/sanitized_imgs_test",
   "MODEL_FOLDER": "./saved/models",
   "PLOT_FOLDER": "./saved/plots",
   "RESULT_FOLDER": "./saved/results",
